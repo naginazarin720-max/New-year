@@ -1,89 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Happy New year sweetheart ✨</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #fff2b2; /* butter yellow */
-    text-align: center;
-    overflow-x: hidden;
-  }
-
-  h1 {
-    margin-top: 40px;
-    font-size: 3em;
-    color: #3a2d00;
-  }
-
-  p {
-    color: #5a4a00;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.6);
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
-
-  button {
-    background: #ffda44;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-
-  button:hover {
-    background: #ffd000;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  /* Gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 15px;
-    object-fit: cover;
-  }
-
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-</style>
+  <title>To the aloo to my samosa💛</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<canvas id="fireworks"></canvas>
-
-<h1>🎆 Happy New Year 🎆</h1>
-<p>to the aloo to my samosa 👀💗</p>
-
-<div class="card">
-  <p>
+<h1>Happy New Year sweetheart 🎆
     This year was crazy right !
     But with you in it, it was a little brighter
     and ofc full of bittersweet memories..
@@ -91,85 +14,37 @@
     Know that Im proud of you! For the battles you hve fought alone
     and for being you! 
     And im sorry for all the hurt ive caused. 
-    I love you and I always will 🧿
+    I love you and I always will 🧿</h1>
+<p>Tap gently. Magic ahead ✨</p>
 
-  </p>
-</div>
+<button onclick="location.href='card.html'">Open Your Card 💌</button>
+<br><br>
+<button onclick="location.href='gallery.html'">See Our Memories 📸</button>
 
-<button type="button" onclick="reveal()">Tap for a Surprise 💌</button>
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c6d8a2a56.mp3">
+</audio>
 
-
-<div id="surprise" class="card hidden">
-  <p>
-    No matter where life takes us,
-    you’ll always be my person.
-    Let’s make 2026 better together. 💫
-    I hope you live more, love yourself more 
-    and fight for your dreams with everything you hve got.
-    Cheers 🥂 
-    With love,
-    Nagina.
-  </p>
-</div>
-
-<h2 class="hidden" id="gallery title">US 📸🧿</h2>
-
-
-<div class="gallery hidden" id="gallery">
-  <!-- Replace image links with your photos -->
-  <img src="Snapchat-1997992953.jpg">
-  <img src="Snapchat-1638266593.jpg">
-  <img src="Snapchat-118253574.jpg">
-  <img src="IMG-20250403-WA0043.jpg">
-</div>
+<canvas id="fireworks"></canvas>
 
 <script>
-  function reveal() 
-   {
-    document.getElementById("surprise").style.display = "block";
-    document.getElementById("gallery").style.display = "grid";
-    document.getElementById("galleryTitle").style.display = "block";
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function firework(){
+  const x = Math.random()*canvas.width;
+  const y = Math.random()*canvas.height/2;
+  for(let i=0;i<20;i++){
+    ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
+    ctx.beginPath();
+    ctx.arc(x+Math.random()*40,y+Math.random()*40,2,0,Math.PI*2);
+    ctx.fill();
   }
-</script>
-
-
-  /* Fireworks animation */
-  const canvas = document.getElementById('fireworks');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  function firework() {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height / 2;
-    const radius = Math.random() * 3 + 2;
-    const particles = 30;
-
-    for (let i = 0; i < particles; i++) {
-      const angle = (Math.PI * 2) / particles * i;
-      const speed = Math.random() * 3 + 2;
-      let px = =;
-      let py = y;
-
-      const color = `hsl(${Math.random() * 360}, 100%, 60%)`;
-
-      function animate() {
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(px, py, radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        px += Math.cos(angle) * speed;
-        py += Math.sin(angle) * speed;
-      }
-
-      animate();
-    }
-  }
-
-  setInterval(firework, 700);
+}
+setInterval(firework,700);
 </script>
 
 </body>
 </html>
-
