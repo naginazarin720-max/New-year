@@ -5,46 +5,63 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<body style="background:black; color:white;">
 
-<h1>Happy New Year sweetheart 🎆
-    This year was crazy right !
+<h1 id="title" style="display:none;">Happy New Year sweetheart🎆
+This year was crazy right !
     But with you in it, it was a little brighter
     and ofc full of bittersweet memories..
-    Thanks for being my chaos partner, for being actually 'just one phone call away'
+    Thanks for being my chaos partner, for being actually 'just one phone call away'.
     Know that Im proud of you! For the battles you hve fought alone
     and for being you! 
     And im sorry for all the hurt ive caused. 
     I love you and I always will 🧿</h1>
-<p>Tap gently. Magic ahead ✨</p>
 
-<button onclick="location.href='card.html'">Open Your Card 💌</button>
-<br><br>
-<button onclick="location.href='gallery.html'">See Our Memories 📸</button>
+<button id="ignite">Light the firework 🎇</button>
 
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c6d8a2a56.mp3">
-</audio>
+<div id="actions" style="display:none;">
+  <br>
+  <button onclick="location.href='card.html'">Open Your Card 💌</button>
+  <br><br>
+  <button onclick="location.href='gallery.html'">See Our Memories 📸</button>
+</div>
 
 <canvas id="fireworks"></canvas>
 
+<audio id="boom">
+  <source src="https://cdn.pixabay.com/audio/2021/09/01/audio_38c1c7c2c7.mp3">
+</audio>
+
 <script>
+const btn = document.getElementById("ignite");
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+btn.onclick = () => {
+  document.getElementById("boom").play();
+  btn.style.display="none";
+  document.getElementById("title").style.display="block";
+  document.getElementById("actions").style.display="block";
+  setInterval(firework,400);
+};
 
 function firework(){
-  const x = Math.random()*canvas.width;
-  const y = Math.random()*canvas.height/2;
-  for(let i=0;i<20;i++){
+  const x=Math.random()*canvas.width;
+  const y=Math.random()*canvas.height/2;
+  for(let i=0;i<30;i++){
     ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
     ctx.beginPath();
-    ctx.arc(x+Math.random()*40,y+Math.random()*40,2,0,Math.PI*2);
+    ctx.arc(x+Math.random()*50,y+Math.random()*50,3,0,Math.PI*2);
     ctx.fill();
   }
 }
-setInterval(firework,700);
 </script>
+</body>
 
+
+
+  
 </body>
 </html>
