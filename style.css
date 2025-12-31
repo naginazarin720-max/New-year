@@ -64,3 +64,58 @@ button {
   border-radius: 20px;
   margin: 10px;
 }
+#bears {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.bear {
+  width: 120px;
+  position: absolute;
+  top: 60px;
+  animation: hugLoop 4s infinite ease-in-out;
+}
+
+.left {
+  left: -150px;
+}
+
+.right {
+  right: -150px;
+  transform: scaleX(-1);
+  animation-delay: 0s;
+}
+
+@keyframes hugLoop {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(200px);
+  }
+  60% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* HEART POP */
+.heart {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  font-size: 30px;
+  opacity: 0;
+  animation: heartPop 4s infinite;
+}
+
+@keyframes heartPop {
+  0% { opacity: 0; transform: scale(0); }
+  45% { opacity: 1; transform: scale(1.4); }
+  60% { opacity: 0; transform: scale(0); }
+  100% { opacity: 0; }
+}
+
