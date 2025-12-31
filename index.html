@@ -26,7 +26,14 @@ This year was crazy right !
   <button onclick="location.href='gallery.html'">See Our Memories 📸</button>
 </div>
 
-<canvas id="fireworks"></canvas>
+<canvas id="fireworks" style="
+position: fixed;
+top: 0;
+left: 0;
+z-index: 0;
+pointer-events: none;
+"></canvas>
+
 
 <audio id="boom">
   <source src="https://cdn.pixabay.com/audio/2021/09/01/audio_38c1c7c2c7.mp3">
