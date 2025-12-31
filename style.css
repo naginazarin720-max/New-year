@@ -64,64 +64,70 @@ button {
   border-radius: 20px;
   margin: 10px;
 }
-#bears {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
+.gallery-title {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2.8em;
+  margin-top: 30px;
 }
 
-/* Bears */
-.bear {
-  width: 120px;
-  position: absolute;
-  top: 60px;
+.subtitle {
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 40px;
 }
 
-/* LEFT BEAR */
-.bear.left {
-  left: -150px;
-  animation: leftBear 4s infinite ease-in-out;
+/* gallery layout */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 100px;
 }
 
-/* RIGHT BEAR */
-.bear.right {
-  right: -150px;
-  transform: scaleX(-1);
-  animation: rightBear 4s infinite ease-in-out;
+.photo-card {
+  background: #fffbe6;
+  padding: 15px;
+  border-radius: 20px;
+  width: 220px;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* LEFT BEAR ANIMATION */
-@keyframes leftBear {
-  0%   { left: -150px; }
-  40%  { left: 40%; }
-  60%  { left: 40%; }
-  100% { left: -150px; }
+.photo-card img {
+  width: 100%;
+  border-radius: 15px;
 }
 
-/* RIGHT BEAR ANIMATION */
-@keyframes rightBear {
-  0%   { right: -150px; }
-  40%  { right: 40%; }
-  60%  { right: 40%; }
-  100% { right: -150px; }
+.photo-card p {
+  margin-top: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1em;
 }
 
-/* HEART POP */
-.heart {
-  position: absolute;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 32px;
-  opacity: 0;
-  animation: heartPop 4s infinite ease-in-out;
+/* floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
 
-@keyframes heartPop {
-  0%   { opacity: 0; transform: translateX(-50%) scale(0); }
-  45%  { opacity: 1; transform: translateX(-50%) scale(1.4); }
-  60%  { opacity: 0; transform: translateX(-50%) scale(0); }
-  100% { opacity: 0; }
+/* hearts animation */
+.hearts {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: heartsUp 6s infinite ease-in;
+  opacity: 0.7;
 }
 
+.hearts:nth-child(1) { left: 20%; animation-delay: 0s; }
+.hearts:nth-child(2) { left: 50%; animation-delay: 2s; }
+.hearts:nth-child(3) { left: 80%; animation-delay: 4s; }
+
+@keyframes heartsUp {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-600px); opacity: 0; }
+}
 
