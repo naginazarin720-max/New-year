@@ -66,56 +66,62 @@ button {
 }
 #bears {
   position: relative;
-  height: 220px;
+  height: 240px;
   overflow: hidden;
 }
 
+/* Bears */
 .bear {
   width: 120px;
   position: absolute;
   top: 60px;
-  animation: hugLoop 4s infinite ease-in-out;
 }
 
-.left {
+/* LEFT BEAR */
+.bear.left {
   left: -150px;
+  animation: leftBear 4s infinite ease-in-out;
 }
 
-.right {
+/* RIGHT BEAR */
+.bear.right {
   right: -150px;
   transform: scaleX(-1);
-  animation-delay: 0s;
+  animation: rightBear 4s infinite ease-in-out;
 }
 
-@keyframes hugLoop {
-  0% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(200px);
-  }
-  60% {
-    transform: translateX(200px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+/* LEFT BEAR ANIMATION */
+@keyframes leftBear {
+  0%   { left: -150px; }
+  40%  { left: 40%; }
+  60%  { left: 40%; }
+  100% { left: -150px; }
+}
+
+/* RIGHT BEAR ANIMATION */
+@keyframes rightBear {
+  0%   { right: -150px; }
+  40%  { right: 40%; }
+  60%  { right: 40%; }
+  100% { right: -150px; }
 }
 
 /* HEART POP */
 .heart {
   position: absolute;
-  top: 80px;
+  top: 90px;
   left: 50%;
-  font-size: 30px;
+  transform: translateX(-50%);
+  font-size: 32px;
   opacity: 0;
-  animation: heartPop 4s infinite;
+  animation: heartPop 4s infinite ease-in-out;
 }
 
 @keyframes heartPop {
-  0% { opacity: 0; transform: scale(0); }
-  45% { opacity: 1; transform: scale(1.4); }
-  60% { opacity: 0; transform: scale(0); }
+  0%   { opacity: 0; transform: translateX(-50%) scale(0); }
+  45%  { opacity: 1; transform: translateX(-50%) scale(1.4); }
+  60%  { opacity: 0; transform: translateX(-50%) scale(0); }
   100% { opacity: 0; }
 }
+
 
